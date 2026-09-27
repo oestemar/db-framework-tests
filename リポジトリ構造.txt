@@ -1,0 +1,58 @@
+■リポジトリ構造
+１リポジトリ×９プロジェクト
+
+・DB：SQLite,MySQL,PosgresSQL
+・フレームワーク：Flask,FastAPI,Django
+・Python3
+・Railway
+・Github
+・Templates集を要作成
+
+db-framework-tests/
+│
+├── flask-sqlite/
+│   ├── app.py
+│   ├── templates/
+│   ├── static/
+│   ├── database.db
+│   ├── .env
+│   └── requirements.txt
+│
+├── flask-mysql/
+│   ├── app.py
+│   ├── templates/
+│   ├── static/
+│   ├── .env
+│   └── requirements.txt
+│
+├── flask-postgres/
+│   ├── app.py
+│   ├── templates/
+│   ├── static/
+│   ├── .env
+│   └── requirements.txt
+│
+├── fastapi-sqlite/
+│   ├── main.py
+│   ├── templates/
+│   ├── static/
+│   ├── database.db
+│   ├── .env
+│   └── requirements.txt
+│
+…（以下 Django 系も同様）
+│
+└── .gitignore   ← リポジトリ直下に1つだけ
+
+
+・1リポジトリの直下に 9 フォルダを置く構成は成立する
+
+・9フォルダは完全に独立したプロジェクトとして扱う
+
+・.env は各フォルダに置く（リポジトリ直下には置かない）
+
+・.gitignore はリポジトリ直下に1つ置く（共通管理）
+
+・VSCode は最上位リポジトリを開き、作業時は対象フォルダだけを開く
+
+・ローカル実行は “そのフォルダに cd してから” 実行する
