@@ -137,6 +137,12 @@ def register_post():
 
     conn = get_db()
     cur = conn.cursor()
+
+    birthday = request.form["birthday"]
+    birthday = (
+        birthday
+        .replace("/", "-")
+    )
     
     cur.execute("""
         INSERT INTO addresses(
@@ -160,7 +166,7 @@ def register_post():
         request.form["name"],
         request.form["kana"],
         request.form["age"],
-        request.form["birthday"],
+        birthday,
         request.form["gender"],
         request.form["blood_type"],
         request.form["email"],
@@ -339,7 +345,7 @@ def delete_get(id):
     
     return render_template(
     "delete.html",
-    address=address
+    record=address
     )
 
 # ============================

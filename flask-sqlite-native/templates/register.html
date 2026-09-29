@@ -29,16 +29,10 @@ placeholder="年齢"
 class="border rounded px-3 py-2 w-full">
 
 <input
-type="text"
+type="date"
 name="birthday"
-placeholder="生年月日"
-class="border rounded px-3 py-2 w-full">
-
-<input
-type="text"
-name="gender"
-placeholder="性別"
-class="border rounded px-3 py-2 w-full">
+value="{{ request.args.get('birthday', '') }}"
+class="border rounded px-3 py-2">
 
 <select
 name="gender"

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{% endblock %}</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+<header class="bg-blue-600 text-white fixed w-full top-0 align-middle">
+<div class="container flex mx-auto items-center">
+    <h1 class="text-2xl font-bold">住所録CRUD検証システム</h1> 
+    <nav class="text-white ml-auto">
+        <div class="container mx-auto p-4 flex gap-4">
+            <a href="/" class="hover:text-gray-300">一覧</a>
+            <a href="/register" class="hover:text-blue-300">新規登録</a>
+            <a href="/register-csv" class="hover:text-blue-300">CSV登録</a>
+        </div>
+    </nav>
+</div>
+</header>
+
+<main class="container mx-auto px-4">
+{% block content %}
+{% endblock %}
+</main>
+
+</body>
+</html>
