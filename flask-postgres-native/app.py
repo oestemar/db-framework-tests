@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request,redirect,url_for
 import csv
-import pymysql
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 app = Flask(__name__)
 
@@ -11,16 +12,16 @@ DB_NAME = "address_db"
 # ============================
 def get_db():
 
-    conn = pymysql.connect(
+    conn = psycopg2.connect(
         host = "localhost",
-        user = "root",
-        password = "Oestemarmysql",
-        database = DB_NAME,
-        charset = "utf8mb4",
-        cursorclass = pymysql.cursors.DictCursor
+        dbname = DB_NAME,
+        user = "postgres",
+        password = "postgres",
         )
 
     return conn
+
+
 
 # ============================
 # 一覧表示
@@ -29,7 +30,9 @@ def get_db():
 def display():
 
     conn = get_db()
-    cur = conn.cursor()
+    cur = conn.cursor(
+        cursor_factory=RealDictCursor
+    )
 
     keyword = request.args.get("keyword", "").strip()
     birthday_from = request.args.get("birthday_from", "")
@@ -110,7 +113,9 @@ def display():
 def detail(id):
 
     conn = get_db()
-    cur = conn.cursor()
+    cur = conn.cursor(
+        cursor_factory=RealDictCursor
+    )
 
     cur.execute("""
         SELECT *
@@ -142,7 +147,9 @@ def register():
 def register_post():
 
     conn = get_db()
-    cur = conn.cursor()
+    cur = conn.cursor(
+        cursor_factory=RealDictCursor
+    )
     
     cur.execute("""
         INSERT INTO addresses(
@@ -199,7 +206,9 @@ def register_csv_post():
     file = request.files["csvfile"]
 
     conn = get_db()
-    cur = conn.cursor()
+    cur = conn.cursor(
+        cursor_factory=RealDictCursor
+    )
 
     reader = csv.DictReader(
         file.stream.read().decode("utf-8-sig").splitlines()
@@ -258,7 +267,9 @@ def register_csv_post():
 def edit_get(id):
 
     conn = get_db()
-    cur = conn.cursor()
+    cur = conn.cursor(
+        cursor_factory=RealDictCursor
+    )
     
     cur.execute("""
     SELECT *
@@ -282,7 +293,9 @@ def edit_get(id):
 def edit_post(id):
 
     conn = get_db()
-    cur = conn.cursor()
+    cur = conn.cursor(
+        cursor_factory=RealDictCursor
+    )
 
     birthday = request.form["birthday"]
     birthday = (
@@ -337,7 +350,9 @@ def edit_post(id):
 def delete_get(id):
 
     conn = get_db()
-    cur = conn.cursor()
+    cur = conn.cursor(
+        cursor_factory=RealDictCursor
+    )
     
     cur.execute("""
     SELECT *
@@ -361,7 +376,9 @@ def delete_get(id):
 def delete_post(id):
 
     conn = get_db()
-    cur = conn.cursor()
+    cur = conn.cursor(
+        cursor_factory=RealDictCursor
+    )
     
     cur.execute("""
     DELETE
