@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}CSV一括登録{% endblock %}
+
+{% block content %}
+
+<div class="bg-white p-6 rounded shadow">
+
+    <h2 class="text-xl font-bold mb-4">
+    CSV一括登録
+    </h2>
+
+    <form
+    method="POST"
+    enctype="multipart/form-data"
+    class="space-y-4 flex gap-4">
+
+        <input
+        type="file"
+        name="csvfile"
+        accept=".csv"
+        class="bg-gray-300 px-4 py-2 rounded cursor-pointer">
+        
+        <button
+        class="bg-blue-600 text-white px-6 py-2 rounded">アップロード
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}削除確認{% endblock %}
+
+{% block content %}
+
+<div class="bg-white p-6 rounded shadow">
+
+    <h2 class="text-xl font-bold mb-4 text-red-600">削除確認</h2>
+
+    <div class="space-y-2 mb-6">
+
+        <p>氏名：{{ record.name }}</p>
+        <p>かな：{{ record.kana }}</p>
+        <p>年齢：{{ record.age }}</p>
+        <p>生年月日：{{ record.birthday }}</p>
+        <p>性別：{{ record.gender }}</p>
+        <p>血液型：{{ record.blood_type }}</p>
+        <p>メールアドレス：{{ record.email }}</p>
+        <p>電話番号：{{ record.tel }}</p>
+        <p>携帯電話番号：{{ record.mobile }}</p>
+        <p>郵便番号：{{ record.postal_code }}</p>
+        <p>住所：{{ record.address }}</p>
+        <p>会社：{{ record.company }}</p>
+
+    </div>
+
+    <a 
+        href = "/"
+        class="bg-blue-600 text-white px-6 py-2 rounded">一覧
+    </a>
+
+</div>
+
+{% endblock %}
