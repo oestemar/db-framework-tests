@@ -1,12 +1,17 @@
 # create_db.py
-import sqlite3
+import pymysql
 
-DB_NAME = "address.db"
-conn = sqlite3.connect(DB_NAME)
+DB_NAME = "fastapi_mysql_native_db"
+conn = pymysql.connect(
+    host="localhost",
+    user="root",
+    password="Oestemarmysql",
+    database=DB_NAME
+)
 cur = conn.cursor()
 cur.execute("""
 CREATE TABLE IF NOT EXISTS addresses(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
+id INT AUTO_INCREMENT PRIMARY KEY,
 name TEXT NOT NULL,
 kana TEXT NOT NULL,
 age INTEGER,

@@ -1,12 +1,19 @@
 # create_db.py
-import sqlite3
+import psycopg2
 
-DB_NAME = "address.db"
-conn = sqlite3.connect(DB_NAME)
+DB_NAME = "fastapi_postgres_native_db"
+
+conn = psycopg2.connect(
+	host="localhost",
+	dbname="fastapi_postgres_native_db",
+	user="postgres",
+	password="postgres"
+)
+
 cur = conn.cursor()
 cur.execute("""
 CREATE TABLE IF NOT EXISTS addresses(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
+id SERIAL PRIMARY KEY,
 name TEXT NOT NULL,
 kana TEXT NOT NULL,
 age INTEGER,
