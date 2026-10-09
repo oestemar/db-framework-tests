@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}編集{% endblock %}
+
+{% block content %}
+
+<div class="bg-white p-6 rounded shadow">
+
+<h2 class="text-xl font-bold mb-4">
+住所録編集
+</h2>
+
+<form method="POST" 
+    action="{% url 'edit' record.id %}"
+    class="space-y-4">
+    {% csrf_token %}
+
+    <input
+    type="text"
+    name="name"
+    value="{{ record.name }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>    
+    <input
+    type="text"
+    name="kana"
+    value="{{ record.kana }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>    
+    <input
+    type="text"
+    name="age"
+    value="{{ record.age }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>
+    <input
+    type="date"
+    name="birthday"
+    value="{{ record.birthday | date:'Y-m-d' }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>
+    <select
+    name="gender"
+    required
+    class="border rounded px-3 py-2 w-full"
+    >
+    <option value="男"
+        {% if record.gender == '男' %}selected{% endif %}>男</option>
+    <option value="女"
+        {% if record.gender == '女' %}selected{% endif %}>女</option>
+    <option value="不明"
+        {% if record.gender == '不明' %}selected{% endif %}>不明</option>
+    </select>
+    <br><br>    
+    <select
+    name="blood_type"
+    required
+    class="border rounded px-3 py-2 w-full"
+    >
+    <option value="A"
+        {% if record.blood_type == 'A' %}selected{% endif %}>A</option>
+    <option value="B"
+        {% if record.blood_type == 'B' %}selected{% endif %}>B</option>
+    <option value="AB"
+        {% if record.blood_type == 'AB' %}selected{% endif %}>AB</option>
+    <option value="O"
+        {% if record.blood_type == 'O' %}selected{% endif %}>O</option>
+    </select>
+    <br><br>    
+    <input
+    type="text"
+    name="email"
+    value="{{ record.email }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>
+    <input
+    type="text"
+    name="tel"
+    value="{{ record.tel }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>    
+    <input
+    type="text"
+    name="mobile"
+    value="{{ record.mobile }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>
+    <input
+    type="text"
+    name="postal_code"
+    value="{{ record.postal_code }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>
+    <input
+    type="text"
+    name="address"
+    value="{{ record.address }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>
+    <input
+    type="text"
+    name="company"
+    value="{{ record.company }}"
+    class="border rounded px-3 py-2 w-full">
+    <br><br>    
+
+    <button class="bg-yellow-600 text-white px-6 py-2 rounded">更新</button>
+
+</form>
+
+</div>
+
+{% endblock %}
