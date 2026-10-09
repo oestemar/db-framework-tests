@@ -4,7 +4,6 @@ from flask import Flask,render_template,request,redirect,url_for
 import os
 import create_db
 
-create_db.create_table()
 
 app = Flask(__name__)
 
