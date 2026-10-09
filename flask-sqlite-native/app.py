@@ -2,6 +2,7 @@ import csv
 import sqlite3
 from flask import Flask,render_template,request,redirect,url_for
 
+
 app = Flask(__name__)
 
 DB_NAME = "address.db"
@@ -367,3 +368,4 @@ def delete_post(id):
     conn.close()
     
     return redirect(url_for("display"))
+
