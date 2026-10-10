@@ -3,6 +3,7 @@ import sqlite3
 from fastapi import FastAPI, Request, Form, UploadFile, File
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
+import create_db
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
