@@ -80,4 +80,7 @@
 - URL:https://db-framework-tests-production.up.railway.app/
 
 ### flask-sqlite-alchemy
-- URL:
+- URL:https://db-framework-tests-production-df88.up.railway.app/
+
+### fastapi-sqlite-native
+- 
