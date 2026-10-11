@@ -3,10 +3,20 @@ from flask import Flask,render_template,request,redirect,url_for
 from models import Address, db
 from sqlalchemy import or_
 from datetime import datetime
+import dotenv
+dotenv.load_dotenv()
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = \
-    "mysql+pymysql://root:Oestemarmysql@localhost/flask_mysql_sqlalchemy_db"
+import os
+
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    f"mysql+pymysql://"
+    f"{os.getenv('MYSQLUSER')}:"
+    f"{os.getenv('MYSQLPASSWORD')}@"
+    f"{os.getenv('MYSQLHOST')}:"
+    f"{os.getenv('MYSQLPORT')}/"
+    f"{os.getenv('MYSQLDATABASE')}"
+)
 
 db.init_app(app)
 
