@@ -3,7 +3,6 @@ import csv
 import pymysql
 import os
 import dotenv
-
 dotenv.load_dotenv()
 
 app = Flask(__name__)   
