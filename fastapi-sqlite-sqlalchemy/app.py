@@ -8,6 +8,7 @@ from sqlalchemy import or_
 from models import Address
 from datetime import datetime
 import create_db
+from models import Base
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -15,6 +16,7 @@ templates = Jinja2Templates(directory="templates")
 DB_NAME = "address.db"
 engine = create_engine(f"sqlite:///{DB_NAME}")
 
+Base.metadata.create_all(bind=engine)
 SessionLocal = sessionmaker(
     autocommit=False, 
     autoflush=False, 
