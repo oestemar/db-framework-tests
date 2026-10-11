@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 import os
 import dotenv
+import create_db
 dotenv.load_dotenv()
 
 app = FastAPI()
