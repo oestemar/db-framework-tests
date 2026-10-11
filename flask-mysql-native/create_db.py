@@ -1,12 +1,14 @@
 # create_db.py
 import pymysql
+import os
 
 DB_NAME = "address_db"
 conn = pymysql.connect(
-        host = "localhost",
-        user = "root",
-        password = "Oestemarmysql",
+        host = os.getenv("MYSQLHOST"),
+        user = os.getenv("MYSQLUSER"),
+        password = os.getenv("MYSQLPASSWORD"),
         database = DB_NAME,
+        port = int(os.getenv("MYSQLPORT")),
         charset = "utf8mb4",
         cursorclass = pymysql.cursors.DictCursor
     )

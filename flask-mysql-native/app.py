@@ -1,21 +1,26 @@
 from flask import Flask,render_template,request,redirect,url_for
 import csv
 import pymysql
+import os
+import dotenv
 
-app = Flask(__name__)
+dotenv.load_dotenv()
+
+app = Flask(__name__)   
 
 DB_NAME = "address_db"
 
 # ============================
-# DB接続
+# DB接続    
 # ============================
 def get_db():
 
     conn = pymysql.connect(
-        host = "localhost",
-        user = "root",
-        password = "Oestemarmysql",
+        host = os.getenv("MYSQLHOST"),
+        user = os.getenv("MYSQLUSER"),
+        password = os.getenv("MYSQLPASSWORD"),
         database = DB_NAME,
+        port = int(os.getenv("MYSQLPORT")),
         charset = "utf8mb4",
         cursorclass = pymysql.cursors.DictCursor
         )
