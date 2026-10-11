@@ -5,18 +5,15 @@ from fastapi.responses import RedirectResponse
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker,declarative_base
 from sqlalchemy import or_
-from models import Address
+from models import Address, Base
 from datetime import datetime
 import dotenv
 import os
-from models import Base
 
 dotenv.load_dotenv()
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-
-DB_NAME = "address.db"
 
 engine = create_engine(
     f"mysql+pymysql://"
@@ -33,7 +30,6 @@ SessionLocal = sessionmaker(
     bind=engine
 )
 
-Base = declarative_base()
 
 Base.metadata.create_all(bind=engine)
 
