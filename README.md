@@ -97,8 +97,8 @@
 - リリース：2026/10/11 Sun
 
 ### flask-mysql-native
-- URL:
-- リリース：
+- URL:https://db-framework-tests-production-4880.up.railway.app/
+- リリース：2026/10/11 Sun
 
 ## 8.開発で苦労した点
 - フレームワークが異なると書き方が変わる。
