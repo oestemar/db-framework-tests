@@ -93,7 +93,12 @@
 - リリース：2026/10/11 Sun
 
 ### django-sqlite-orm
+- URL:https://db-framework-tests-production-63b3.up.railway.app/
+- リリース：2026/10/11 Sun
+
+### flask-mysql-native
 - URL:
+- リリース：
 
 ## 8.開発で苦労した点
 - フレームワークが異なると書き方が変わる。
