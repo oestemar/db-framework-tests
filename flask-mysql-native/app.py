@@ -7,8 +7,6 @@ dotenv.load_dotenv()
 
 app = Flask(__name__)   
 
-DB_NAME = "address_db"
-
 # ============================
 # DB接続    
 # ============================
@@ -18,7 +16,7 @@ def get_db():
         host = os.getenv("MYSQLHOST"),
         user = os.getenv("MYSQLUSER"),
         password = os.getenv("MYSQLPASSWORD"),
-        database = DB_NAME,
+        database = os.getenv("MYSQLDBNAME"),
         port = int(os.getenv("MYSQLPORT")),
         charset = "utf8mb4",
         cursorclass = pymysql.cursors.DictCursor
