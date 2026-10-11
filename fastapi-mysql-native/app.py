@@ -3,11 +3,12 @@ import pymysql
 from fastapi import FastAPI, Request, Form, UploadFile, File
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
+import os
+import dotenv
+dotenv.load_dotenv()
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-
-DB_NAME = "fastapi_mysql_native_db"
 
 # ============================
 # DB接続
@@ -15,10 +16,12 @@ DB_NAME = "fastapi_mysql_native_db"
 def get_db():
 
     conn = pymysql.connect(
-        host="localhost",
-        user="root",
-        password="Oestemarmysql",
-        database=DB_NAME,
+        host=os.getenv("MYSQLHOST"),
+        user=os.getenv("MYSQLUSER"),
+        password=os.getenv("MYSQLPASSWORD"),
+        database=os.getenv("MYSQLDATABASE"),
+        port=int(os.getenv("MYSQLPORT")),
+        charset="utf8mb4",
         cursorclass=pymysql.cursors.DictCursor
     )
 

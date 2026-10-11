@@ -104,6 +104,10 @@
 - URL:https://db-framework-tests-production-1d95.up.railway.app/
 - リリース：2026/10/11 Sun
 
+### fastapi-mysql-native
+- URL:
+- リリース：2026/10/11 Sun
+
 ## 8.開発で苦労した点
 - フレームワークが異なると書き方が変わる。
 - リポジトリを一つにまとめ、配下に15プロジェクトを配したため、ローカルからgitで何かPUSHすると、Railway上の各プロジェクトで一斉に再デプロイが走ってしまう。

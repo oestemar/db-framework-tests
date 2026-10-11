@@ -1,12 +1,13 @@
 # create_db.py
 import pymysql
+import os
 
-DB_NAME = "fastapi_mysql_native_db"
 conn = pymysql.connect(
-    host="localhost",
-    user="root",
-    password="Oestemarmysql",
-    database=DB_NAME
+    host=os.getenv("MYSQLHOST"),
+    user=os.getenv("MYSQLUSER"),
+    password=os.getenv("MYSQLPASSWORD"),
+    database=os.getenv("MYSQLDATABASE"),
+    port=int(os.getenv("MYSQLPORT"))
 )
 cur = conn.cursor()
 cur.execute("""
