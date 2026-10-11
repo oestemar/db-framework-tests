@@ -71,8 +71,8 @@ def display(request: Request):
 
     return templates.TemplateResponse(
         name="display.html",
-        request = request,
         context={
+            "request": request,
             "records": records,
             "keyword": keyword,
             "birthday_from": birthday_from,
