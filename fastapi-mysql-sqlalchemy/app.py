@@ -7,6 +7,11 @@ from sqlalchemy.orm import sessionmaker,declarative_base
 from sqlalchemy import or_
 from models import Address
 from datetime import datetime
+import dotenv
+import os
+from models import Base
+
+dotenv.load_dotenv()
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -14,8 +19,14 @@ templates = Jinja2Templates(directory="templates")
 DB_NAME = "address.db"
 
 engine = create_engine(
-    "mysql+pymysql://root:Oestemarmysql@localhost/fastapi_mysql_sqlalchemy_db"
-)
+    f"mysql+pymysql://"
+    f"{os.getenv('MYSQLUSER')}:"
+    f"{os.getenv('MYSQLPASSWORD')}@"
+    f"{os.getenv('MYSQLHOST')}:"
+    f"{os.getenv('MYSQLPORT')}/"
+    f"{os.getenv('MYSQLDATABASE')}"
+)    
+
 SessionLocal = sessionmaker(
     autocommit=False, 
     autoflush=False, 
@@ -23,6 +34,8 @@ SessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
+
+Base.metadata.create_all(bind=engine)
 
 # ============================
 # 一覧表示
