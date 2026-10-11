@@ -78,12 +78,25 @@
 ## 7.本番環境
 ### flask-sqlite-native
 - URL:https://db-framework-tests-production.up.railway.app/
+- リリース：2026/10/09 Fri
 
 ### flask-sqlite-sqlalchemy
 - URL:https://db-framework-tests-production-df88.up.railway.app/
+- リリース：2026/10/10 Sat
 
 ### fastapi-sqlite-native
 - URL:https://db-framework-tests-production-6106.up.railway.app/
+- リリース：2026/10/10 Sat
 
 ### fastapi-sqlite-sqlalchemy
+- URL:https://db-framework-tests-production-e24c.up.railway.app/
+- リリース：2026/10/11 Sun
+
+### django-sqlite-orm
 - URL:
+
+## 8.開発で苦労した点
+- フレームワークが異なると書き方が変わる。
+- リポジトリを一つにまとめ、配下に15プロジェクトを配したため、ローカルからgitで何かPUSHすると、Railway上の各プロジェクトで一斉に再デプロイが走ってしまう。
+
+## 9.今後の予定
