@@ -105,7 +105,7 @@
 - リリース：2026/10/11 Sun
 
 ### fastapi-mysql-native
-- URL:
+- URL:https://db-framework-tests-production-47f7.up.railway.app/
 - リリース：2026/10/11 Sun
 
 ## 8.開発で苦労した点
