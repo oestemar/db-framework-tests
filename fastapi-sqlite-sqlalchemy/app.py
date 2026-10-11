@@ -7,7 +7,6 @@ from sqlalchemy.orm import sessionmaker,declarative_base
 from sqlalchemy import or_
 from models import Address
 from datetime import datetime
-import create_db
 from models import Base
 
 app = FastAPI()
