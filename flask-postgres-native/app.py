@@ -2,10 +2,12 @@ from flask import Flask,render_template,request,redirect,url_for
 import csv
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import os
+import dotenv
+import create_db
+dotenv.load_dotenv()
 
-app = Flask(__name__)
-
-DB_NAME = "address_db"
+app = Flask(__name__)"
 
 # ============================
 # DB接続
@@ -13,10 +15,10 @@ DB_NAME = "address_db"
 def get_db():
 
     conn = psycopg2.connect(
-        host = "localhost",
-        dbname = DB_NAME,
-        user = "postgres",
-        password = "postgres",
+        host = os.getenv('POSTGRESHOST'),
+        dbname = os.getenv('POSTGRESDATABASE'),
+        user = os.getenv('POSTGRESUSER'),
+        password = os.getenv('POSTGRESPASSWORD'),
         )
 
     return conn

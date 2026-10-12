@@ -1,12 +1,15 @@
 # create_db.py
 import psycopg2
+import os
+import dotenv
 
-DB_NAME = "address_db"
+dotenv.load_dotenv()
+
 conn = psycopg2.connect(
-        host = "localhost",
-        user = "postgres",
-        password = "postgres",
-        database = DB_NAME,
+        host = os.getenv('POSTGRESHOST'),
+        user = os.getenv('POSTGRESUSER'),
+        password = os.getenv('POSTGRESPASSWORD'),
+        database = os.getenv('POSTGRESDATABASE'),
     )
 cur = conn.cursor()
 cur.execute("""
