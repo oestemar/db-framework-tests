@@ -1,13 +1,13 @@
 # create_db.py
 import psycopg2
-
-DB_NAME = "fastapi_postgres_native_db"
+import os
 
 conn = psycopg2.connect(
-	host="localhost",
-	dbname="fastapi_postgres_native_db",
-	user="postgres",
-	password="postgres"
+	host=os.getenv("PGHOST"),
+	user=os.getenv("PGUSER"),
+	password=os.getenv("PGPASSWORD"),
+	port=os.getenv("PGPORT"),
+	dbname=os.getenv("POSTGRES_DB"),
 )
 
 cur = conn.cursor()

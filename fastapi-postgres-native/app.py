@@ -4,11 +4,12 @@ from fastapi import FastAPI, Request, Form, UploadFile, File
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 from psycopg2.extras import RealDictCursor
+import os
+from dotenv import load_dotenv
+import create_db
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-
-DB_NAME = "fastapi_postgres_native_db"
 
 # ============================
 # DB接続
@@ -16,10 +17,11 @@ DB_NAME = "fastapi_postgres_native_db"
 def get_db():
 
     conn = psycopg2.connect(
-        host="localhost",
-        database=DB_NAME,
-        user="postgres",
-        password="postgres"
+        host=os.getenv("PGHOST"),
+        user=os.getenv("PGUSER"),
+        password=os.getenv("PGPASSWORD"),
+        port=os.getenv("PGPORT"),
+        dbname=os.getenv("POSTGRES_DB"),
     )
 
     return conn

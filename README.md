@@ -121,6 +121,10 @@
 - リリース：2026/10/12 Mon
 
 ### flask-postgres-sqlalchemy
+- URL:https://db-framework-tests-production-70e6.up.railway.app/
+- リリース：2026/10/12 Mon
+
+### fastapi-postgres-native
 - URL:
 - リリース：
 
