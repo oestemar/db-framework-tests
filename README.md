@@ -125,6 +125,10 @@
 - リリース：2026/10/12 Mon
 
 ### fastapi-postgres-native
+- URL:https://db-framework-tests-production-39bb.up.railway.app/
+- リリース：2026/10/12 Mon
+
+### fastapi-postgres-sqlalchemy
 - URL:
 - リリース：
 

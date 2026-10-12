@@ -2,19 +2,25 @@ import csv
 from fastapi import FastAPI, Request, Form, UploadFile, File
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker,declarative_base
+from sqlalchemy.orm import sessionmaker
 from sqlalchemy import or_
-from models import Address
+from sqlalchemy import create_engine
+from models import Address,Base
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
-DB_NAME = "address.db"
-
 engine = create_engine(
-"postgresql+psycopg2://postgres:postgres@localhost/fastapi_postgres_sqlalchemy_db"
+    f"postgresql+psycopg2://"
+    f"{os.getenv('PGUSER')}:"
+    f"{os.getenv('PGPASSWORD')}@"
+    f"{os.getenv('PGHOST')}:"
+    f"{os.getenv('PGPORT')}/"
+    f"{os.getenv('POSTGRES_DB')}"    
 )
 
 SessionLocal = sessionmaker(
@@ -23,7 +29,7 @@ SessionLocal = sessionmaker(
     bind=engine
 )
 
-Base = declarative_base()
+Base.metadata.create_all(bind=engine)
 
 # ============================
 # 一覧表示
