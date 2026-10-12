@@ -7,10 +7,6 @@ db = SQLAlchemy()
 class Address(db.Model):
     __tablename__ = "addresses"
     
-    __table_args__ = {
-        "sqlite_autoincrement": True
-    }
-
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     kana = db.Column(db.String(100))

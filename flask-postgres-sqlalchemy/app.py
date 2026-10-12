@@ -3,10 +3,21 @@ from flask import Flask,render_template,request,redirect,url_for
 from models import Address, db
 from sqlalchemy import or_
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = \
-    "postgresql+psycopg2://postgres:postgres@localhost/flask_postgres_sqlalchemy_db"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    f"postgresql+psycopg2://"
+    f"{os.getenv('PGUSER')}:"
+    f"{os.getenv('PGPASSWORD')}@"
+    f"{os.getenv('PGHOST')}:"
+    f"{os.getenv('PGPORT')}/"
+    f"{os.getenv('POSTGRES_DB')}"
+)
 
 db.init_app(app)
 
