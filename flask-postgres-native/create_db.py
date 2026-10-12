@@ -14,7 +14,7 @@ conn = psycopg2.connect(
         host = os.getenv('POSTGRESHOST'),
         user = os.getenv('POSTGRESUSER'),
         password = os.getenv('POSTGRESPASSWORD'),
-        port = os.getenv('POSTGRESPORT'),
+        port = int(os.getenv('POSTGRESPORT')),
         database = os.getenv('POSTGRESDATABASE'),
     )
 cur = conn.cursor()

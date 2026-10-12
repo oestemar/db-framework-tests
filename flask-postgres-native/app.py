@@ -18,7 +18,7 @@ def get_db():
         host = os.getenv('POSTGRESHOST'),
         dbname = os.getenv('POSTGRESDATABASE'),
         user = os.getenv('POSTGRESUSER'),
-        port = os.getenv('POSTGRESPORT'),
+        port = int(os.getenv('POSTGRESPORT')),
         password = os.getenv('POSTGRESPASSWORD'),
         )
 
