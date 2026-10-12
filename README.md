@@ -4,6 +4,8 @@
 - Flask / FastAPI / Django
 - SQLite / MySQL / PostgreSQL
 - Native SQL / ORM
+- 全15通り
+
 
 ## 2.プロジェクト一覧
 | Framework | DB         | Access     |
@@ -46,7 +48,7 @@
 ### Django
 - app.pyを用いず、Pythonファイルを多数作成
 - Djangoの各種コマンドにより上記をある程度自動作成
-- DBを作ると、独自管理画面がデフォルトで付属し、自動ででCRUDになる
+- DBを作ると、独自管理画面がデフォルトで付属し、自動ででCRUDになる。当プロジェクトでは自作画面も使用
 
 ## 5.DB比較
 ### SQLite
@@ -57,23 +59,23 @@
 ### MySQL
 - DBにログインして空のDBを作成の上、create_db.pyを実行してテーブル作成
 - DB接続の設定項目が多い
-- 普及率が高いとのこと
+- 普及率が高い
 
 ### PostgreSQL
-- DB接続の設定項目が多い（４つ以上）
+- DB接続の設定項目が多い
 - 高機能　画像なども扱える
 
 ## 6.ORM比較
 ### Native SQL
 - SQLを直接記述
-- 基本となる方法
+- DBの基本
 
 ### SQLAlchemy
 - SQLでしたいことをPythonコードで記述する
 - SQLite/MySQL/PostgreSQL間で殆ど差異がない
 
 ### Django ORM
-- 管理画面の自動作成など慣れると使い易いとのこと
+- 変更項目が多いと感じたが、管理画面の自動作成など慣れると使い易いとのこと
 
 ## 7.本番環境
 ### flask-sqlite-native
@@ -81,7 +83,7 @@
 - リリース：2026/10/09 Fri
 
 ### flask-sqlite-sqlalchemy
-- URL:https://db-framework-tests-production-df88.up.railway.app/
+-   URL：https://db-framework-tests-production-df88.up.railway.app/
 - リリース：2026/10/10 Sat
 
 ### fastapi-sqlite-native
@@ -137,7 +139,10 @@
 - リリース：2026/10/12 Mon
 
 ## 8.開発で苦労した点
-- フレームワークが異なると書き方が変わる。
+- フレームワーク/DBが異なると書き方が変わる。
 - リポジトリを一つにまとめ、配下に15プロジェクトを配したため、ローカルからgitで何かPUSHすると、Railway上の各プロジェクトで一斉に再デプロイが走ってしまう。
+- 同じものを作るのに15通りの方法を試したわけであるが、これを覚えておくのは困難なので、知識の取り出し方が重要。
 
 ## 9.今後の予定
+- Djangoにデフォルトで備わっている管理機能の整備
+- サイトへの各種機能（バリデーション・認証など）追加

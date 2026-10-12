@@ -105,9 +105,10 @@ def detail(request: Request, id: int):
 def register_get(request: Request):
 
     return templates.TemplateResponse(
-        request=request,
         name="register.html",
-        context={}
+        context={
+            "request": request
+        }
     )
 
 # ============================
@@ -248,6 +249,7 @@ def edit_get(request: Request, id: int):
         name="edit.html",
         request=request,
         context={
+            "request": request,
             "record": record
         }
     )
@@ -321,6 +323,7 @@ def delete_get(request: Request, id: int):
         name="delete.html",
         request=request,
         context={
+            "request": request,
             "record": record
         }
     )

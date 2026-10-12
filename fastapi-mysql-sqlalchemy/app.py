@@ -80,8 +80,8 @@ def display(request: Request):
 
     return templates.TemplateResponse(
         name="display.html",
-        request = request,
         context={
+            "request": request,
             "records": records,
             "keyword": keyword,
             "birthday_from": birthday_from,
@@ -114,9 +114,10 @@ def detail(request: Request, id: int):
 def register_get(request: Request):
 
     return templates.TemplateResponse(
-        request=request,
         name="register.html",
-        context={}
+        context={
+            "request": request
+        }
     )
 
 # ============================
@@ -255,8 +256,8 @@ def edit_get(request: Request, id: int):
     
     return templates.TemplateResponse(
         name="edit.html",
-        request=request,
         context={
+            "request": request,
             "record": record
         }
     )
@@ -328,8 +329,8 @@ def delete_get(request: Request, id: int):
     
     return templates.TemplateResponse(
         name="delete.html",
-        request=request,
         context={
+            "request": request,
             "record": record
         }
     )
