@@ -1,9 +1,6 @@
 # create_db.py
 import psycopg2
 import os
-import dotenv
-
-dotenv.load_dotenv()
 
 conn = psycopg2.connect(
         host = os.getenv('POSTGRESHOST'),
