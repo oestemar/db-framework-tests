@@ -82,6 +82,7 @@ def display(request: Request):
         name="display.html",
         request=request,
         context={
+            
             "records": records,
             "keyword": keyword,
             "birthday_from": birthday_from,
