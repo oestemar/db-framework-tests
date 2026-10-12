@@ -101,8 +101,8 @@ def detail(request: Request, id: int):
 
     return templates.TemplateResponse(
         name="detail.html",
-        request=request,
         context={
+            "request": request,
             "record": record
         }
     )
@@ -184,9 +184,10 @@ async def register_post(
 def register_csv(request: Request):
 
     return templates.TemplateResponse(
-        request=request,
         name="register_csv.html",
-        context={}
+        context={
+            "request": request
+        }
     )
 
 # ============================
