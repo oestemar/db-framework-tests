@@ -1,11 +1,20 @@
 # create_db.py
 import psycopg2
 import os
+import dotenv
+dotenv.load_dotenv()
+
+print(os.getenv("POSTGRESHOST"))
+print(os.getenv("POSTGRESPORT"))
+print(os.getenv("POSTGRESUSER"))
+print(os.getenv("POSTGRESPASSWORD"))
+print(os.getenv("POSTGRESDATABASE"))
 
 conn = psycopg2.connect(
         host = os.getenv('POSTGRESHOST'),
         user = os.getenv('POSTGRESUSER'),
         password = os.getenv('POSTGRESPASSWORD'),
+        port = os.getenv('POSTGRESPORT'),
         database = os.getenv('POSTGRESDATABASE'),
     )
 cur = conn.cursor()
