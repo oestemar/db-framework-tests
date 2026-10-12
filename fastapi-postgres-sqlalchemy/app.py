@@ -72,6 +72,7 @@ def display(request: Request):
 
         query = query.filter(Address.birthday <= birthday_to)
 
+    query = query.order_by(Address.id.asc())
     records = query.all()
 
     db.close()
