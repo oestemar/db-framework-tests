@@ -7,7 +7,7 @@ import dotenv
 import create_db
 dotenv.load_dotenv()
 
-app = Flask(__name__)"
+app = Flask(__name__)
 
 # ============================
 # DB接続
