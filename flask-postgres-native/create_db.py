@@ -11,11 +11,11 @@ print(os.getenv("POSTGRESPASSWORD"))
 print(os.getenv("POSTGRESDATABASE"))
 
 conn = psycopg2.connect(
-        host = os.getenv('POSTGRESHOST'),
-        user = os.getenv('POSTGRESUSER'),
-        password = os.getenv('POSTGRESPASSWORD'),
-        port = int(os.getenv('POSTGRESPORT')),
-        database = os.getenv('POSTGRESDATABASE'),
+        host = os.getenv('PGHOST'),
+        user = os.getenv('PGUSER'),
+        password = os.getenv('PGPASSWORD'),
+        port = int(os.getenv('PGPORT')),
+        database = os.getenv('POSTGRES_DB'),
     )
 cur = conn.cursor()
 cur.execute("""

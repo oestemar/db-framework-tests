@@ -15,11 +15,11 @@ app = Flask(__name__)
 def get_db():
 
     conn = psycopg2.connect(
-        host = os.getenv('POSTGRESHOST'),
-        dbname = os.getenv('POSTGRESDATABASE'),
-        user = os.getenv('POSTGRESUSER'),
-        port = int(os.getenv('POSTGRESPORT')),
-        password = os.getenv('POSTGRESPASSWORD'),
+        host = os.getenv('PGHOST'),
+        dbname = os.getenv('POSTGRES_DB'),
+        user = os.getenv('PGUSER'),
+        port = int(os.getenv('PGPORT')),
+        password = os.getenv('PGPASSWORD'),
         )
 
     return conn
