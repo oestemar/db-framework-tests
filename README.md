@@ -109,8 +109,12 @@
 - リリース：2026/10/11 Sun
 
 ### fastapi-mysql-sqlalchemy
-- 
-- 
+- URL:https://db-framework-tests-production-f397.up.railway.app/
+- リリース：2026/10/12 Mon
+
+### django-mysql-orm
+- URL:
+- リリース：
 
 ## 8.開発で苦労した点
 - フレームワークが異なると書き方が変わる。
