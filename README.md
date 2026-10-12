@@ -133,8 +133,8 @@
 - リリース：2026/10/12 Mon
 
 ### django-postgres-orm
-- URL:
-- リリース：
+- URL:https://db-framework-tests-production-6732.up.railway.app/
+- リリース：2026/10/12 Mon
 
 ## 8.開発で苦労した点
 - フレームワークが異なると書き方が変わる。
