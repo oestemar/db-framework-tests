@@ -129,6 +129,10 @@
 - リリース：2026/10/12 Mon
 
 ### fastapi-postgres-sqlalchemy
+- URL:https://db-framework-tests-production-3a41.up.railway.app/
+- リリース：2026/10/12 Mon
+
+### django-postgres-orm
 - URL:
 - リリース：
 
