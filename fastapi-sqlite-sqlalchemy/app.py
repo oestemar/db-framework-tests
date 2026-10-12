@@ -175,9 +175,10 @@ async def register_post(
 def register_csv(request: Request):
 
     return templates.TemplateResponse(
-        request=request,
         name="register_csv.html",
-        context={}
+        context={
+            "request": request
+        }
     )
 
 # ============================
